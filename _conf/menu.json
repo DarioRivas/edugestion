@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Dirección",
+    "menu": "direccion",
+    "roles": "admin, directivo, jefepracticas",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Guias/TPs cargados",
+        "url": "direccion/guiasmesas.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "guias"
+      },
+      {
+        "subname": "Guias/TPs descargados",
+        "url": "direccion/guiasdescargadas.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "guiasdescargadas"
+      },
+      {
+        "subname": "Programas cargados",
+        "url": "direccion/programas.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "programascargados"
+      },
+      {
+        "subname": "Proyectos cargados",
+        "url": "direccion/proyectos.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "proyectoscargados"
+      },
+      {
+        "subname": "Planificaciones cargadas",
+        "url": "direccion/planificaciones.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "planificacionescargadas"
+      }
+    ]
+  },
+  {
+    "name": "Alumnos",
+    "menu": "alumnos",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "alumnos/",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informacionalumnos"
+      },
+      {
+        "subname": "Programas",
+        "url": "alumnos/verprogramas.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "verprogramas"
+      }
+    ]
+  },
+  {
+    "name": "Docentes",
+    "menu": "docentes",
+    "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "docentes/",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informacionsecre"
+      },
+      {
+        "subname": "Documentación",
+        "url": "docentes/documentacion.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "documentacionsecre"
+      },
+      {
+        "subname": "Subir Programas",
+        "url": "docentes/subirprogramas.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "subirprogramas"
+      },
+      {
+        "subname": "Subir Proyectos",
+        "url": "docentes/subirproyectos.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "subirproyectos"
+      },
+      {
+        "subname": "Subir Planificaciones",
+        "url": "docentes/subirplanificaciones.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "subirplanificaciones"
+      }
+    ]
+  },
+  {
+    "name": "Biblioteca",
+    "menu": "biblioteca",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "biblioteca/",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informacionbiblio"
+      },
+      {
+        "subname": "Buscar Libros",
+        "url": "biblioteca/buscar.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "buscarlibros"
+      },
+      {
+        "subname": "Recursos p/Aula",
+        "url": "biblioteca/recursos.php",
+        "roles": "admin, bibliotecaria, directivo",
+        "label": "recursosbiblio"
+      },
+      {
+        "subname": "Configurar",
+        "url": "biblioteca/configurar.php",
+        "roles": "admin, bibliotecaria, directivo",
+        "label": "configurarbiblio"
+      },
+      {
+        "subname": "Cargar libros",
+        "url": "biblioteca/nuevolibro.php",
+        "roles": "admin, bibliotecaria, directivo",
+        "label": "cargarlibros"
+      }
+    ]
+  },
+  {
+    "name": "Laboratorio",
+    "menu": "laboratorio",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "laboratorio/",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informacionlaboratorio"
+      },
+      {
+        "subname": "Materiales",
+        "url": "laboratorio/materiales.php",
+        "roles": "admin",
+        "label": "materialeslaboratorio"
+      }
+    ]
+  },
+  {
+    "name": "Taller",
+    "menu": "taller",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "taller/",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informaciontaller"
+      },
+      {
+        "subname": "Grupos y Horarios",
+        "url": "taller/grupos.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "grupos"
+      },
+      {
+        "subname": "Material de consulta",
+        "url": "taller/material.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "materialdeconsulta"
+      },
+      {
+        "subname": "Subir material",
+        "url": "taller/subirmaterial.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "subirmaterial"
+      },
+      {
+        "subname": "Jefatura",
+        "url": "taller/jefatura.php",
+        "roles": "admin, jefepracticas, directivo",
+        "label": "jefatura"
+      }
+    ]
+  },
+  {
+    "name": "Recursos TIC",
+    "menu": "recursos",
+    "roles": "admin",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "recursos/",
+        "roles": "admin, alumno, docente, jefepracticas, directivo",
+        "label": "informaciontic"
+      },
+      {
+        "subname": "Cargar Recursos",
+        "url": "recursos/cargar.php",
+        "roles": "admin, tic",
+        "label": "cargarrecursostic"
+      },
+      {
+        "subname": "Editar Recursos",
+        "url": "recursos/editar.php",
+        "roles": "admin, tic",
+        "label": "editarrecursostic"
+      }
+    ]
+  },
+  {
+    "name": "Mesas de Examen",
+    "menu": "mesasdeexamen",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Información",
+        "url": "mesasdeexamen/",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "informacionmesas"
+      },
+      {
+        "subname": "Guías/Trabajos Prácticos",
+        "url": "mesasdeexamen/vertrabajos.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "trabajosmesas"
+      },
+      {
+        "subname": "Subir Guías/TPs",
+        "url": "mesasdeexamen/subirtrabajos.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "label": "subirtrabajosmesas"
+      }
+    ]
+  },
+  {
+    "name": "Admin",
+    "menu": "admin",
+    "roles": "admin, tic",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "_panel",
+        "url": "admin/",
+        "roles": "admin, tic",
+        "label": "paneladmin"
+      },
+      {
+        "subname": "_usuarios",
+        "url": "admin/admin_usuarios.php",
+        "roles": "admin, tic",
+        "label": "usuariosadmin"
+      },
+      {
+        "subname": "_programas",
+        "url": "admin/subirprogramas.php",
+        "roles": "admin, tic",
+        "label": "subirprogramasadmin"
+      }      
+    ]
+  }
+]

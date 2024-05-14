@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --color-A: forestgreen;
+  --color-B: rgb(0, 108, 0);
+  --color-C: yellowgreen;
+  --color-D: rgb(176, 255, 176);
+  --color-D: rgb(146, 255, 146);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+html {
+  font-size: 100%; /* 100% = 16px */
+}
+
+nav {
+  font-size: normal;
+}
+
+main > header {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  border-bottom: 0.5px solid rgb(216, 216, 216);
+  font-size: x-large;
+  font-weight: 500;
+  align-items: center;
+  /*color: var(--color-A);*/
+  margin-bottom: 10px;
+}
+
+main > header i {
+  color: var(--color-A);
+  margin-right: 0.4rem;
+  margin-left: 0.1rem;
+}
+
+#list-unstyled {
+  display: flex;
+  /* move flex-items in column */
+  flex-direction: column;
+}
+
+ul#list-unstyled > :last-child {
+  margin-top: auto;
+}
+
+body {
+  /*
+  background-image: linear-gradient(
+    to right top,
+    #ececec,
+    #f1f1f1,
+    #f5f5f5,
+    #fafafa,
+    #ffffff
+  );
+  background: rgb(14,75,47);
+ background: linear-gradient(90deg, rgba(14,75,47,1) 0%, rgba(14,75,47,1) 35%, rgba(21,115,71,1) 100%);
+  background-color: #157347; */
+  background-image: url("../images/fondo3.jpg");
+  background-repeat: repeat;
+  min-height: 100dvh;
+}
+
+footer {
+  padding-left: 20%;
+}
+
+main {
+  margin-left: 20%;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 3rem;
+}
+
+tr.normal th {
+  font-weight: normal;
+  color: var(--bs-success);
+}
+
+footer {
+  height: 3rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  border-top: 0.5px solid rgb(216, 216, 216);
+}
+
+#nomostrarpc{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  #banner-login {
+    display: none;
+  }
+  #badge-usuario {
+    display: none;
+  }
+  #nomostrarpc{
+    display: initial;
+  }
+  #nomostrarencelu{
+    display: none;
+  }  
+}
+input {
+  z-index: 10000;
+}
+
+
+#librosCatalogo {
+  transition: transform 0.5s ease;
+}
+
+#librosCatalogo:hover {
+  transform: scale(1.1);
+}
