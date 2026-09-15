@@ -1,7 +1,7 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_includes/db.php");
-require_once (ROOT_DIR . "_includes/header.php");
+include(ROOT_DIR . "_includes/db.php");
+require_once(ROOT_DIR . "_includes/header.php");
 ?>
 <style>
     footer {
@@ -20,9 +20,8 @@ require_once (ROOT_DIR . "_includes/header.php");
                                 <div class="col-lg-6">
                                     <div class="card-body p-md-3 mx-md-3 text-center">
                                         <div class="text-center fw-bold">
-                                            <span class="text-dark fs-1 px-2">CET</span><span
-                                                class="text-success fs-1">5</span>
-                                            <p>TÉCNICOS QUÍMICOS</p>
+                                            <a href="../index.php"> <span class="text-dark fs-1 px-2">CET</span><span
+                                                    class="text-success fs-1">5</span> <p>TÉCNICOS QUÍMICOS</p></a>                                    
                                         </div>
                                         <form method="post" action="session.php">
                                             <div class="py-3">
@@ -36,7 +35,7 @@ require_once (ROOT_DIR . "_includes/header.php");
                                                 <input type="password" id="password" name="password"
                                                     class="form-control" placeholder="contraseña" />
                                             </div>
-                                            <?php if (isset ($_GET['error']) == 1) { ?>
+                                            <?php if (isset($_GET['error']) == 1) { ?>
                                                 <div class="text-center pt-2 pb-2 text-danger">Error en email o contraseña
                                                 </div>
                                             <?php } ?>
@@ -73,4 +72,4 @@ require_once (ROOT_DIR . "_includes/header.php");
         </section>
     </main>
 
-    <?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+    <?php require_once(ROOT_DIR . '_includes/footer.php') ?>

@@ -28,23 +28,21 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">BRANDANI THOMÁS BENJAMÍN</li>
-                  <li class="list-group-item list-group-item-warning">CALQUIN MAXIMILIANO ANDRES</li>
-                  <li class="list-group-item list-group-item-warning">CARDANO LUZ PAMPA</li>
-                  <li class="list-group-item list-group-item-warning">CARRIZO AIXA LUZMILA MILAGROS</li>
-                  <li class="list-group-item list-group-item-warning">MATRERO MORALES JUAN IGNACIO</li>
-                  <li class="list-group-item list-group-item-warning">MUÑOZ ZAPATA GADIEL LAUTARO</li>
-                  <li class="list-group-item list-group-item-warning">GIROLIMINI CAMILA</li>
-                  <li class="list-group-item list-group-item-warning">GIULIOTTI SANTINO LUCA</li>
+                  <li class="list-group-item list-group-item-warning">ALBORNOZ MARIA EUGENIA</li>
+                  <li class="list-group-item list-group-item-warning">BARRERA DELFINA ELUNEY </li>
+                  <li class="list-group-item list-group-item-warning">BRAVO NICOLÁS MARTÍN</li>
+                  <li class="list-group-item list-group-item-warning">BRIZUELA DARIO RUBEN</li>
+                  <li class="list-group-item list-group-item-warning">CASTIGLIONI AEDO JULIETA</li>
+                  <li class="list-group-item list-group-item-warning">FLORITO ARIEL IGNACIO</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Ajuste > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -52,29 +50,27 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
         </div>
         <div class="card shadow rounded my-3">
           <div class="card-header">
-            1ro 2da TM - 14:00 a 17:12hs
+            1ro 1ra TM - 14:00 a 17:12hs
           </div>
           <div class="card-body small">
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">CHAYLE GUADALUPE ANTONELLA</li>
-                  <li class="list-group-item list-group-item-warning">GALLI FIORELLA LUCÍA</li>
-                  <li class="list-group-item list-group-item-warning">HETHERINGTON JULIAN IGNACIO</li>
-                  <li class="list-group-item list-group-item-warning">LLAMIN LUCIA BARBARA</li>
-                  <li class="list-group-item list-group-item-warning">MARTINEZ BAUTISTA</li>
-                  <li class="list-group-item list-group-item-warning">MARTINEZ ROMERO CATALINA ABRIL</li>
-                  <li class="list-group-item list-group-item-warning">CELESTE MABELLINI UMA VALENTINA</li>
-                  <li class="list-group-item list-group-item-warning">CERDA GONZALEZ JUAN PEDRO</li>
+                  <li class="list-group-item list-group-item-warning">MILLALEN AMANCAY ANTONELLA</li>
+                  <li class="list-group-item list-group-item-warning">MILLANER CAMILA</li>
+                  <li class="list-group-item list-group-item-warning">MUÑOZ MILAGROS AIEN</li>
+                  <li class="list-group-item list-group-item-warning">MUÑOZ TAPIA GABRIEL ALEXANDER</li>
+                  <li class="list-group-item list-group-item-warning">RATTI JUAN EMILIO</li>
+                  <li class="list-group-item list-group-item-warning">REYES DIANA ANAHI</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Electricidad > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -82,29 +78,27 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
         </div>
         <div class="card shadow rounded my-3">
           <div class="card-header">
-            1ro 2da TM - 14:00 a 17:12hs
+            1ro 1ra TM - 14:00 a 17:12hs
           </div>
           <div class="card-body small">
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">MUÑOZ JULIAN IGNACIO</li>
-                  <li class="list-group-item list-group-item-warning">MORA BENJAMIN JEREMIAS</li>
-                  <li class="list-group-item list-group-item-warning">PARADA ALISON JAZMIN</li>
-                  <li class="list-group-item list-group-item-warning">PARIS JUAN CRUZ</li>
-                  <li class="list-group-item list-group-item-warning">PEREZ MARIA VALENTINA</li>
-                  <li class="list-group-item list-group-item-warning">PAZ JAZMIN MORENA</li>
-                  <li class="list-group-item list-group-item-warning">PEDREROS ANA SOFIA</li>
-                  <li class="list-group-item list-group-item-warning">PEREZ IRAZUSTA BRUNELA</li>
+                  <li class="list-group-item list-group-item-warning">ROJAS MAXIMILIANO LAUTARO</li>
+                  <li class="list-group-item list-group-item-warning">SUAREZ NEHUEN JEREMIAS</li>
+                  <li class="list-group-item list-group-item-warning">TAPIA MIA LORENA</li>
+                  <li class="list-group-item list-group-item-warning">TORRES LARA MARTINA</li>
+                  <li class="list-group-item list-group-item-warning">VALDEZ HERNANDEZ PAULA LILEN</li>
+                  <li class="list-group-item list-group-item-warning">VALENCIA MAZZONI EMMA GUILLERMINA</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Carpintería > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -112,28 +106,27 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
         </div>
         <div class="card shadow rounded my-3">
           <div class="card-header">
-            1ro 2da TM - 14:00 a 17:12hs
+            1ro 1ra TM - 14:00 a 17:12hs
           </div>
           <div class="card-body small">
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">PASCAL ANNA BIANCA</li>
-                  <li class="list-group-item list-group-item-warning">PLAZA FRANCO MARTIN</li>
-                  <li class="list-group-item list-group-item-warning">RANTERIA AITANA</li>
-                  <li class="list-group-item list-group-item-warning">SCHERER BASTIAN</li>
-                  <li class="list-group-item list-group-item-warning">SEPULVEDA CABRAL MATTEO TIZIANO</li>
-                  <li class="list-group-item list-group-item-warning">SEPULVEDA SELENA NAHIARA</li>
-                  <li class="list-group-item list-group-item-warning">VALIENTE BERTOLA FRANCESCO G</li>
+                  <li class="list-group-item list-group-item-warning">FUENTES TOLOSA SIMON AGUSTIN</li>
+                  <li class="list-group-item list-group-item-warning">JORGE NICOLE SOFIA BELEN</li>
+                  <li class="list-group-item list-group-item-warning">RIVAS JUAN IGNACIO</li>
+                  <li class="list-group-item list-group-item-warning">RIVAS MATTEO ALEJANDRO</li>
+                  <li class="list-group-item list-group-item-warning">VALIENTE BERTOLA EMILIANO JOAQUIN </li>
+                  <li class="list-group-item list-group-item-warning">VAZQUEZ LOPEZ BRISA NADIN </li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Hojalatería > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>

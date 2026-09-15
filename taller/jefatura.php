@@ -1,12 +1,12 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_functions/validarsesion.php");
+include(ROOT_DIR . "_functions/validarsesion.php");
 verificarSesion();
-include (ROOT_DIR . "_includes/db.php");
-include (ROOT_DIR . "_functions/taller.php");
-include (ROOT_DIR . "_functions/usuarios.php");
-require_once (ROOT_DIR . "_includes/header.php");
-require_once (ROOT_DIR . "_includes/sidebar.php");
+include(ROOT_DIR . "_includes/db.php");
+include(ROOT_DIR . "_functions/taller.php");
+include(ROOT_DIR . "_functions/usuarios.php");
+require_once(ROOT_DIR . "_includes/header.php");
+require_once(ROOT_DIR . "_includes/sidebar.php");
 $fechainicio = date('Y-m-d');
 $fechafin = date('Y-m-d');
 $alert = '';
@@ -29,7 +29,7 @@ if (isset($_POST['publicar']) && $_POST['seccion'] != 0) {
     }
 }
 
-if (isset($_POST['asignar']) && $_POST['seccion'] != 0 && $_POST['docente'] != 0) {  
+if (isset($_POST['asignar']) && $_POST['seccion'] != 0 && $_POST['docente'] != 0) {
     $seccion = $_POST['seccion'];
     $docente = $_POST['docente'];
     $sql = "UPDATE taller_secciones SET docente = '$docente' WHERE id = '$seccion'";
@@ -53,9 +53,8 @@ if (isset($_POST['asignar']) && $_POST['seccion'] != 0 && $_POST['docente'] != 0
             <div class="alert <?= $alertW ?> pt-3"><?= $alert ?>
             </div>
         <?php } ?>
-
         <div class="card rounded shadow mt-3">
-            <div class="card-header bg-danger bg-opacity-50">Publicación de inasistencias</div>
+            <div class="card-header text-bg-danger">Publicación de inasistencias</div>
             <div class="card-body pt-0">
                 <form action="jefatura.php" method="post">
                     <div class="row justify-content-center align-items-end">
@@ -94,7 +93,7 @@ if (isset($_POST['asignar']) && $_POST['seccion'] != 0 && $_POST['docente'] != 0
     </section>
     <section>
         <div class="card rounded shadow mt-5">
-            <div class="card-header">Asignación de docentes</div>
+            <div class="card-header text-bg-success">Asignación de docentes</div>
             <div class="card-body pt-0">
                 <form action="jefatura.php" method="post">
                     <div class="row align-items-end justify-content-center">
@@ -132,4 +131,4 @@ if (isset($_POST['asignar']) && $_POST['seccion'] != 0 && $_POST['docente'] != 0
     </section>
 </main>
 <script src="../_assets/js/menu.js"></script>
-<?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+<?php require_once(ROOT_DIR . '_includes/footer.php') ?>

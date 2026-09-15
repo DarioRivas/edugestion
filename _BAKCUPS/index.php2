@@ -1,0 +1,40 @@
+<?php
+define('ROOT_DIR', '');
+require_once(ROOT_DIR . "_includes/headermain.php");
+?>
+
+<section class="titulo py-3 text-center bg-dark">
+    <h5 class="text-white"><b>Centro de Educación Técnica N°5</b></h5>
+    <h1 class="text-white"><b>Jaime Felipe Morant</b></h1>
+    <i class='bx bxs-graduation bx-lg text-success' ></i>
+    <h1 class="text-success"><b>Técnicos Químicos</b></h1>
+    <br>
+    <h6 class="text-white"><b>Cinco Saltos - Río Negro</b></h6>
+</section>
+<!--  INICIO DE ANIMACION -->
+<div class="container">
+    <div id="ball"></div>
+    <p id="xyz">cet5cs <span class="text-success">.</span> online</p>
+</div>
+<!--  FIN DE ANIMACION -->
+
+
+
+<div class="main_div">
+    <a href="miusuario/" class="btn btn-success py-3 w-100">Ingresar al sistema</a>
+    <div class="d-flex justify-content-center">
+        <a href="https://www.facebook.com/cet5cs/" class="text-decoration-none d-flex align-items-center text-primary mt-5"><i class='bx bxl-facebook-square bx-lg'></i>
+            <span class="align-middle fs-4 text-dark">facebook.com/cet5cs</span>
+        </a>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    document.oncontextmenu = function() {
+        return false
+    }
+</script>
+
+</body>
+
+</html>

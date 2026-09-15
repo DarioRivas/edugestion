@@ -29,9 +29,9 @@ require_once(ROOT_DIR . "_includes/header.php");
                                 <h3 class="is-full-width"><b>SESION CERRADA CORRECTAMENTE</b></h3><br>
                                 <div>
                                     <form method="get" action="./">
-                                        <button class="btn btn-success cerrar-sesion is-full-width" type="submit">VOLVER
-                                            AL
-                                            LOGIN</button>
+                                        <button class="btn btn-success cerrar-sesion is-full-width" type="submit">
+                                            VOLVER AL LOGIN
+                                        </button>
                                     </form>
                                 </div>
                             </div>

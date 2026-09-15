@@ -1,7 +1,7 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_includes/db.php");
-include (ROOT_DIR . "_functions/usuarios.php");
+include(ROOT_DIR . "_includes/db.php");
+include(ROOT_DIR . "_functions/usuarios.php");
 $email = $_POST['email'];
 $password = $_POST['password'];
 $validado = validarUsuario($email, $password);
@@ -18,10 +18,21 @@ if (mysqli_num_rows($validado) == 0) //if ($ent === NULL)
     $_SESSION['user-apellido'] = $usuario['apellido'];
     $_SESSION['user-rango'] = $usuario['rango'];
     $_SESSION['user-rol'] = $usuario['rol'];
-    $_SESSION['user-imagen'] = $usuario['imagen'];
-    //LOGIN DB
+    $id = $usuario['id'];
     $conexion = conectar();
-    date_default_timezone_set('America/Argentina/Jujuy');
+    if ($_SESSION['user-rol'] == 'alumno') {
+        $consulta = "SELECT idcurso FROM usuarios_alumnos WHERE idusuarios = $id ";
+        $result = mysqli_query($conexion, $consulta);
+        $curso = mysqli_fetch_assoc($result);
+        $_SESSION['user-curso'] = $curso['idcurso'];
+    }else{
+        $_SESSION['user-curso'] = -1;
+    }
+    $_SESSION['user-imagen'] = $usuario['imagen'];
+    $_SESSION['user-imagen'] =
+        //LOGIN DB
+
+        date_default_timezone_set('America/Argentina/Jujuy');
     $fecha = date('Y-m-d H:i:s');
     $userId = $_SESSION['user-id'];
     $nombre = $_SESSION['user-apellido'] . ', ' . $_SESSION['user-nombre'];
@@ -46,6 +57,9 @@ if (mysqli_num_rows($validado) == 0) //if ($ent === NULL)
             break;
         case ('jefepracticas'):
             header("Location: " . ROOT_DIR . "taller/jefatura.php");
+            break;
+        case ('preceptor'):
+            header("Location: " . ROOT_DIR . "docentes/");
             break;
     }
 }

@@ -1,14 +1,14 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_functions/validarsesion.php");
+include(ROOT_DIR . "_functions/validarsesion.php");
 verificarSesion();
-include (ROOT_DIR . "_includes/db.php");
+include(ROOT_DIR . "_includes/db.php");
 $conexion = conectar();
-include (ROOT_DIR . "_functions/biblioteca.php");
-require_once (ROOT_DIR . "_includes/header.php");
-require_once (ROOT_DIR . "_includes/sidebar.php");
+include(ROOT_DIR . "_functions/biblioteca.php");
+require_once(ROOT_DIR . "_includes/header.php");
+require_once(ROOT_DIR . "_includes/sidebar.php");
 $hayBusqueda = 0;
-$sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.portada, COUNT(E.id) AS ejemplares
+$sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.archivo, L.portada, COUNT(E.id) AS ejemplares
 FROM libros L
 INNER JOIN libros_autores A ON L.autor = A.id
 INNER JOIN libros_editoriales E ON L.editorial = E.id
@@ -25,7 +25,7 @@ if (isset($_POST['btn-buscar'])) {
   } else {
     $isbn = "";
   }
-  $sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.portada, COUNT(E.id) AS ejemplares
+  $sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.archivo, L.portada, COUNT(E.id) AS ejemplares
   FROM libros L
   INNER JOIN libros_autores A ON L.autor = A.id
   INNER JOIN libros_editoriales E ON L.editorial = E.id
@@ -69,7 +69,7 @@ if (isset($_POST['btn-filtrar'])) {
     $tag = " AND L.tags LIKE '%$seltag%' ";
   }
 
-  $sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.portada, COUNT(E.id) AS ejemplares
+  $sql = "SELECT L.id, L.titulo, A.autor, E.editorial, L.tags, L.archivo, L.portada, COUNT(E.id) AS ejemplares
   FROM libros L
   INNER JOIN libros_autores A ON L.autor = A.id
   INNER JOIN libros_editoriales E ON L.editorial = E.id
@@ -90,24 +90,24 @@ $cantResults = mysqli_num_rows($libros);
     <i class='bx bx-book'></i> Biblioteca
   </header>
   <section>
-    <header>
-      <div class="text-center">
-        <h4>Buscar Libros</h4>
+    <div class="card shadow rounded">
+      <div class="card-header text-bg-dark">
+        BUSCADOR DE LIBROS
       </div>
-    </header>
-    <div class="card shadow p-3 rounded">
-      <h6 class="text-center">Buscar por Título, Autor o Etiquetas</h6>
-      <form action="buscar.php" method="post">
-        <div class="row align-items-end justify-content-center">
-          <div class="col-xxl-6 col-xl-6 col-lg-6 col-8 mb-3 text-center">
-            <input type="text" class="form-control" id="busqueda" name="busqueda" aria-describedby="busqueda" required>
+      <div class="card-body">
+        <h6 class="text-center">Buscar por Título, Autor o Etiquetas</h6>
+        <form action="buscar.php" method="post">
+          <div class="row align-items-end justify-content-center">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-8 mb-3 text-center">
+              <input type="text" class="form-control" id="busqueda" name="busqueda" aria-describedby="busqueda" required>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-4 mb-3">
+              <button type="submit" class="btn btn-success d-flex w-100 justify-content-center" name="btn-buscar">Buscar
+                <i class='bx bx-search-alt mt-1 ms-2'></i></button>
+            </div>
           </div>
-          <div class="col-xxl-2 col-xl-2 col-lg-2 col-4 mb-3">
-            <button type="submit" class="btn btn-success d-flex w-100 justify-content-center" name="btn-buscar">Buscar
-              <i class='bx bx-search-alt mt-1 ms-2'></i></button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div class="card shadow p-3  my-3 rounded small">
       <h6 class="text-center">o filtrar por campos de datos</h6>
@@ -169,11 +169,16 @@ $cantResults = mysqli_num_rows($libros);
     <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-2 py-3 justify-content-center">
       <?php while ($libro = mysqli_fetch_array($libros)) { ?>
         <div class="col mb-3 ">
-          <div  id="librosCatalogo" class="card rounded shadow h-100">
+          <div id="librosCatalogo" class="card rounded shadow h-100">
             <img src="portadas/<?= $libro['portada'] ?>" class="img-fluid card-img-top" alt="">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark mt-4 me-5 ">
               x<?= $libro['ejemplares'] ?>
             </span>
+            <?php if ($libro['archivo'] != NULL) { ?>
+              <span class="position-absolute top-0 end-0 mt-1  text-danger">
+                <i class='bx bxs-file-pdf bx-md me-'></i>
+              </span>
+            <?php } ?>
             <div class="card-body small">
               <div class="card-title">
                 <a href="libro.php?id=<?= $libro['id'] ?>" class=" d-flex align-items-center">
@@ -184,18 +189,17 @@ $cantResults = mysqli_num_rows($libros);
                 <span class="text-secondary small label"><i class='bx bxs-user-voice me-1'></i></span><?= $libro['autor'] ?>
               </div>
               <div class="mt-1">
-                <span class="text-secondary small label"><i
-                    class='bx bxs-building-house me-1'></i></span><?= $libro['editorial'] ?>
+                <span class="text-secondary small label"><i class='bx bxs-building-house me-1'></i></span><?= $libro['editorial'] ?>
               </div>
               <div class="mt-1">
                 <span class="text-secondary small"><i class='bx bxs-purchase-tag me-1'></i></span><?= $libro['tags'] ?>
               </div>
             </div>
-            <div class="card-footer bg-light">
-              <a href="libro.php?id=<?= $libro['id'] ?>" class="btn btn-success btn-sm px-2 mt-1 w-100">ver ficha
+            <div class="card-footer bg-light p-0">
+              <a href="libro.php?id=<?= $libro['id'] ?>" class="btn btn-success btn-sm px-2 w-100">Ver ficha
                 <i class='bx bx-show ms-1'></i> </a>
               <?php if (in_array($_SESSION['user-rol'], array('admin', 'bibliotecaria'))) { ?>
-                <a href="libroeditar.php?id=<?= $libro['id'] ?>" class="btn btn-warning btn-sm px-3 mt-1 w-100">Editar
+                <a href="libroeditar.php?id=<?= $libro['id'] ?>" class="btn btn-warning btn-sm px-3 w-100">Editar
                   <i class='bx bxs-edit ms-1'></i>
                 </a>
               <?php } ?>
@@ -210,4 +214,4 @@ $cantResults = mysqli_num_rows($libros);
   <?php } ?>
 </main>
 <script src="../_assets/js/menu.js"></script>
-<?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+<?php require_once(ROOT_DIR . '_includes/footer.php') ?>

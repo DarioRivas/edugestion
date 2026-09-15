@@ -25,7 +25,7 @@ if (isset($_POST['btnEnviar'])) {
                 $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
                 // Verificar si el tipo de imagen está permitido
                 if (in_array($imageFileType, $allowedTypes)) {                    
-                    $nuevoNombre = $userApellido . '_' . $userId . date('i:s') . '_img.jpg';
+                    $nuevoNombre = $userApellido . '_' . $userId . date('i_s') . '_img.jpg';
                     $uploadPath = $uploadDir . $nuevoNombre;
                     // Mover el archivo a la carpeta de destino
                     if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
@@ -67,11 +67,8 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
     <header>
         <i class='bx bx-user-circle'></i> Mi usuario
     </header>
-    <section>
+    <section class="container">
         <header>
-            <div class="text-center my-3">
-                <h4>Actualizar mi imagen de perfil</h4>
-            </div>
             <?php if ($alert != '') { ?>
                 <div>
                     <div class="alert <?= $color ?>"><?= $alert ?>
@@ -79,7 +76,9 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
                 </div>
             <?php } ?>
         </header>
-        <div class="card shadow p-3 mb-5 text-center">
+        <div class="card shadow mb-5">
+            <div class="card-header text-bg-dark">ACTUALIZAR MI FOTO DE PERFIL</div>
+            <div class="card-body">
             <form action="mifoto.php" method="post" enctype="multipart/form-data">
                 <div id="imagen1">
                     <div class="input-group mb-3">
@@ -94,9 +93,10 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <button class="btn btn-success w-25" type="submit" id="btnEnviar" name="btnEnviar">Enviar</button>
+                    <button class="btn btn-success w-25" type="submit" id="btnEnviar" name="btnEnviar">Cargar foto</button>
                 </div>
             </form>
+            </div>
         </div>
     </section>
 </main>

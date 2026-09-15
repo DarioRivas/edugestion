@@ -7,126 +7,241 @@
     "submenu": [
       {
         "subname": "Guias/TPs cargados",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "direccion/guiasmesas.php",
         "roles": "admin, directivo, jefepracticas",
         "label": "guias"
       },
       {
         "subname": "Guias/TPs descargados",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "direccion/guiasdescargadas.php",
         "roles": "admin, directivo, jefepracticas",
         "label": "guiasdescargadas"
       },
       {
         "subname": "Programas cargados",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "direccion/programas.php",
         "roles": "admin, directivo, jefepracticas",
         "label": "programascargados"
       },
       {
-        "subname": "Proyectos cargados",
-        "url": "direccion/proyectos.php",
-        "roles": "admin, directivo, jefepracticas",
-        "label": "proyectoscargados"
-      },
-      {
         "subname": "Planificaciones cargadas",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "direccion/planificaciones.php",
         "roles": "admin, directivo, jefepracticas",
         "label": "planificacionescargadas"
-      }
+      },
+       {
+        "subname": "TP Periodo Int. de Saberes",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
+        "url": "direccion/periodosaberesdire.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "pisalumnosdire"
+      },
+      {
+        "subname": "Curriculums cargadas",
+        "icon": "<i class='bx bx-id-card bx-sm me-1'></i>", 
+        "url": "direccion/curriculums.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "curriculumscargados"
+      },
+      {
+        "subname": "Estadísticas de Mesas",
+        "icon": "<i class='bx bx-line-chart bx-sm me-1'></i>",
+        "url": "direccion/estadisticasmesas.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "estadisticasmesas"
+      }      
     ]
   },
   {
     "name": "Alumnos",
     "menu": "alumnos",
-    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "alumnos/",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informacionalumnos"
       },
       {
+        "subname": "Docentes",
+        "icon": "<i class='bx bxs-user-voice bx-sm me-1'></i>",
+        "url": "alumnos/verdocentes.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "verdocentes"
+      },
+            {
+        "subname": "TP Periodo Int. de Saberes",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
+        "url": "alumnos/periodosaberes.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "pisalumnos"
+      },
+      {
         "subname": "Programas",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "alumnos/verprogramas.php",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
-        "label": "verprogramas"
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "programasalu"
+      },
+      {
+        "subname": "Prácticas Profesionalizantes",
+        "icon": "<i class='bx bx-briefcase bx-sm me-1'></i>",
+        "url": "alumnos/practicas.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "infopracticas"
+      },
+      {
+        "subname": "Horarios Educ. Física",
+        "icon": "<i class='bx bx-basketball bx-sm me-1'></i>",
+        "url": "alumnos/educfisica.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "horarioedufisica"
+      },
+      {
+        "subname": "Egresados",
+        "icon": "<i class='bx bxs-graduation bx-sm me-1'></i>",
+        "url": "alumnos/egresados.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "infoegresados"
       }
     ]
   },
   {
     "name": "Docentes",
     "menu": "docentes",
-    "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "docentes/",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informacionsecre"
       },
       {
         "subname": "Documentación",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "docentes/documentacion.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "documentacionsecre"
       },
       {
         "subname": "Subir Programas",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "docentes/subirprogramas.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "subirprogramas"
       },
       {
         "subname": "Subir Proyectos",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "docentes/subirproyectos.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "subirproyectos"
       },
       {
+        "subname": "Proyectos cargados",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
+        "url": "docentes/proyectos.php",
+        "roles": "admin, directivo, jefepracticas",
+        "label": "proyectoscargados"
+      },
+      {
         "subname": "Subir Planificaciones",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "docentes/subirplanificaciones.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "subirplanificaciones"
+      },
+      {
+        "subname": "Programas",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
+        "url": "docentes/verprogramas.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "programasdoc"
+      },
+      {
+        "subname": "Corte Bimestral",
+        "icon": "<i class='bx bx-columns bx-sm me-1'></i>",
+        "url": "docentes/bimestrales.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "bimestrales"
+      },
+      {
+        "subname": "Subir TP PIS",
+          "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
+        "url": "docentes/subirpis.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "subirpis"
+      },
+      {
+        "subname": "Inclusión",
+        "icon": "<i class='bx bx-user bx-sm me-1'></i>",
+        "url": "docentes/inclusion.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "inclusion"
+      },
+      {
+        "subname": "Info Alumnos",
+        "icon": "<i class='bx bx-id-card bx-sm me-1'></i>",
+        "url": "docentes/alumnos.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "alumnosdatos"
       }
     ]
   },
   {
     "name": "Biblioteca",
     "menu": "biblioteca",
-    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "biblioteca/",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informacionbiblio"
       },
       {
         "subname": "Buscar Libros",
+        "icon": "<i class='bx bx-book-open bx-sm me-1'></i>",
         "url": "biblioteca/buscar.php",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "buscarlibros"
       },
       {
+        "subname": "Libros Digitales",
+        "icon": "<i class='bx bxs-book-open bx-sm me-1'></i>",
+        "url": "biblioteca/bibliodigital.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "bibliodigital"
+      },
+      {
         "subname": "Recursos p/Aula",
+        "icon": "<i class='bx bx-tv bx-sm me-1'></i>",
         "url": "biblioteca/recursos.php",
         "roles": "admin, bibliotecaria, directivo",
         "label": "recursosbiblio"
       },
       {
         "subname": "Configurar",
+        "icon": "<i class='bx bx-cog bx-sm me-1'></i>",
         "url": "biblioteca/configurar.php",
         "roles": "admin, bibliotecaria, directivo",
         "label": "configurarbiblio"
       },
       {
         "subname": "Cargar libros",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "biblioteca/nuevolibro.php",
         "roles": "admin, bibliotecaria, directivo",
         "label": "cargarlibros"
@@ -136,110 +251,190 @@
   {
     "name": "Laboratorio",
     "menu": "laboratorio",
-    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "laboratorio/",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informacionlaboratorio"
       },
       {
-        "subname": "Materiales",
-        "url": "laboratorio/materiales.php",
-        "roles": "admin",
-        "label": "materialeslaboratorio"
+        "subname": "Horarios",
+        "url": "laboratorio/horarioslabo.php",
+        "icon": "<i class='bx bx-time-five bx-sm me-1'></i>",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "horarioslabo"
       }
     ]
   },
   {
     "name": "Taller",
     "menu": "taller",
-    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "taller/",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informaciontaller"
       },
       {
         "subname": "Grupos y Horarios",
+        "icon": "<i class='bx bx-calendar bx-sm me-1'></i>",
         "url": "taller/grupos.php",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "grupos"
       },
       {
         "subname": "Material de consulta",
-        "url": "taller/material.php",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
+        "url": "taller/materialconsulta.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "materialdeconsulta"
       },
       {
         "subname": "Subir material",
-        "url": "taller/subirmaterial.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
-        "label": "subirmaterial"
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
+        "url": "taller/subirmaterialconsulta.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "subirmaterialtaller"
       },
       {
         "subname": "Jefatura",
+        "icon": "<i class='bx bx-cog bx-sm me-1'></i>",
         "url": "taller/jefatura.php",
         "roles": "admin, jefepracticas, directivo",
         "label": "jefatura"
       }
     ]
   },
+
   {
-    "name": "Recursos TIC",
-    "menu": "recursos",
-    "roles": "admin",
+    "name": "Mi Aula",
+    "menu": "miaula",
+    "roles": "admin, alumno",
     "activo": "1",
     "submenu": [
       {
-        "subname": "Información",
-        "url": "recursos/",
-        "roles": "admin, alumno, docente, jefepracticas, directivo",
-        "label": "informaciontic"
+        "subname": "Ingresar",
+        "icon": "<i class='bx bx-paper-plane bx-sm me-1'></i>",
+        "url": "miaula/",
+        "roles": "admin, alumno",
+        "label": "miaula"
+      }
+    ]
+  },
+
+  {
+    "name": "Recursos TIC",
+    "menu": "tic",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Recursos Digitales",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
+        "url": "tic/index.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "maintic"
       },
       {
         "subname": "Cargar Recursos",
-        "url": "recursos/cargar.php",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
+        "url": "tic/cargar.php",
         "roles": "admin, tic",
         "label": "cargarrecursostic"
       },
       {
         "subname": "Editar Recursos",
-        "url": "recursos/editar.php",
+        "icon": "<i class='bx bx-cog bx-sm me-1'></i>",
+        "url": "tic/editar.php",
         "roles": "admin, tic",
         "label": "editarrecursostic"
+      },
+      {
+        "subname": "Reserva de Recursos",
+        "icon": "<i class='bx bx-tv bx-sm me-1'></i>",
+        "url": "tic/rec.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "reservastic"
       }
     ]
   },
   {
     "name": "Mesas de Examen",
     "menu": "mesasdeexamen",
-    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
     "activo": "1",
     "submenu": [
       {
         "subname": "Información",
+        "icon": "<i class='bx bx-cloud bx-sm me-1'></i>",
         "url": "mesasdeexamen/",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "informacionmesas"
       },
       {
         "subname": "Guías/Trabajos Prácticos",
+        "icon": "<i class='bx bxs-cloud-download bx-sm me-1'></i>",
         "url": "mesasdeexamen/vertrabajos.php",
-        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "trabajosmesas"
       },
       {
         "subname": "Subir Guías/TPs",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "mesasdeexamen/subirtrabajos.php",
-        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
         "label": "subirtrabajosmesas"
+      }
+    ]
+  },
+  {
+    "name": "Mi Usuario",
+    "menu": "miusuario",
+    "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+    "activo": "1",
+    "submenu": [
+      {
+        "subname": "Ficha Personal",
+        "icon": "<i class='bx bx-id-card bx-sm me-1'></i>",
+        "url": "miusuario/ficha.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "ficha"
+      },
+      {
+        "subname": "Mis Cursos",
+        "icon": "<i class='bx bx-chalkboard bx-sm me-1'></i>",
+        "url": "miusuario/materias.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "miscursos"
+      },
+      {
+        "subname": "Mis Archivos Cargados",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
+        "url": "miusuario/misarchivos.php",
+        "roles": "admin, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "misarchivos"
+      },
+      {
+        "subname": "Cambiar Clave",
+        "icon": "<i class='bx bx-dialpad bx-sm me-1'></i>",
+        "url": "miusuario/cambiarclave.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "cambiarclave"
+      },
+      {
+        "subname": "Mi Foto de Perfil",
+        "icon": "<i class='bx bx-image bx-sm me-1'></i>",
+        "url": "miusuario/mifoto.php",
+        "roles": "admin, alumno, docente, bibliotecaria, jefepracticas, directivo, preceptor",
+        "label": "miimagen"
       }
     ]
   },
@@ -250,23 +445,40 @@
     "activo": "1",
     "submenu": [
       {
-        "subname": "_panel",
+        "subname": "Panel",
+        "icon": "<i class='bx bx-cog bx-sm me-1'></i>",
         "url": "admin/",
         "roles": "admin, tic",
         "label": "paneladmin"
       },
       {
-        "subname": "_usuarios",
+        "subname": "Usuarios",
+        "icon": "<i class='bx bxs-user bx-sm me-1'></i>",
         "url": "admin/admin_usuarios.php",
         "roles": "admin, tic",
         "label": "usuariosadmin"
       },
       {
-        "subname": "_programas",
+        "subname": "Docentes/Materia",
+        "icon": "<i class='bx bxs-user-check bx-sm me-1'></i>",
+        "url": "admin/profesxmateria.php",
+        "roles": "admin, tic",
+        "label": "profesxmateria"
+      },
+      {
+        "subname": "Subir programas",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
         "url": "admin/subirprogramas.php",
         "roles": "admin, tic",
         "label": "subirprogramasadmin"
-      }      
+      },
+      {
+        "subname": "Subir proyectos",
+        "icon": "<i class='bx bx-cloud-upload bx-sm me-1'></i>",
+        "url": "admin/subirproyectos.php",
+        "roles": "admin, tic",
+        "label": "subirproyectosadmin"
+      }
     ]
   }
 ]

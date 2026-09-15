@@ -63,6 +63,16 @@ function get_ProgramasAnio($nomenclatura)
   return $result;
 }
 
+function get_ProgramasRegularesAnio($nomenclatura)
+{
+  date_default_timezone_set('America/Argentina/Jujuy');
+  $aniolectivo = date('Y');
+  $mes = date('m');
+  $query = "SELECT * FROM programasregulares WHERE materia = '$nomenclatura' AND activo = 1 AND aniolectivo = '$aniolectivo';";
+  $result = mysqli_query(conectar(), $query);
+  return $result;
+}
+
 function get_ultimosTrabajos(){
     $query = "SELECT TP.anio, M.nombre AS materia, TP.mes, TP.tipo, TP.fechadecarga, TP.cargadopornombre
      FROM mesas_trabajos TP
@@ -70,4 +80,24 @@ function get_ultimosTrabajos(){
      ORDER BY TP.fechadecarga DESC LIMIT 10;";
     $result = mysqli_query(conectar(), $query);
     return $result;
+}
+
+function get_ProgramasAnioAnterior($nomenclatura)
+{
+  date_default_timezone_set('America/Argentina/Jujuy');
+  $aniolectivo = date('Y') - 1;
+  $mes = date('m');
+  $query = "SELECT * FROM programas WHERE materia = '$nomenclatura' AND activo = 1 AND aniolectivo = '$aniolectivo';";
+  $result = mysqli_query(conectar(), $query);
+  return $result;
+}
+
+function get_ProgramasRegularesAnioAnterior($nomenclatura)
+{
+  date_default_timezone_set('America/Argentina/Jujuy');
+  $aniolectivo = date('Y') - 1;
+  $mes = date('m');
+  $query = "SELECT * FROM programasregulares WHERE materia = '$nomenclatura' AND activo = 1 AND aniolectivo = '$aniolectivo';";
+  $result = mysqli_query(conectar(), $query);
+  return $result;
 }

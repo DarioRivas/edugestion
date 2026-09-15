@@ -1,14 +1,16 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_functions/validarsesion.php");
+include(ROOT_DIR . "_functions/validarsesion.php");
 verificarSesion();
-include (ROOT_DIR . "_includes/db.php");
-include (ROOT_DIR . "_functions/usuarios.php");
-require_once (ROOT_DIR . "_includes/header.php");
-require_once (ROOT_DIR . "_includes/sidebar.php");
+include(ROOT_DIR . "_includes/db.php");
+include(ROOT_DIR . "_functions/usuarios.php");
+require_once(ROOT_DIR . "_includes/header.php");
+require_once(ROOT_DIR . "_includes/sidebar.php");
 $userId = $_SESSION['user-id'];
 $userRol = $_SESSION['user-rol'];
 $ok = 0;
+$miCurso = 'Sin Asignar';
+$conexion = conectar();
 if (isset($_POST['actualizar'])) {
     $apellidoP = $_POST['apellido'];
     $nombreP = $_POST['nombre'];
@@ -43,6 +45,14 @@ if (isset($_POST['actualizar'])) {
     }
     $ok = 1;
 }
+if (isset($_POST['btnmicurso'])) {
+    $postcurso = $_POST["miCurso"];
+    $_SESSION['user-curso'] = $postcurso;
+    $queryU = "UPDATE usuarios_alumnos SET idcurso = '$postcurso' WHERE idusuarios = $userId;";
+    mysqli_query($conexion, $queryU);
+    $ok = 1;
+} 
+
 $datosPersonalesA = get_DatosPersonales($userId, $userRol);
 $datosPersonales = mysqli_fetch_assoc($datosPersonalesA);
 $apellido = $datosPersonales['apellido'];
@@ -64,12 +74,23 @@ if ($userRol != 'alumno') {
     $telefonotutor_b = $datosPersonales['telefonotutor_b'];
     $emailtutor_b = $datosPersonales['emailtutor_b'];
     $cuiltutor_b = $datosPersonales['cuiltutor_b'];
+    $idmicurso = $datosPersonales['idcurso'];
+    if ($idmicurso != 0) {
+        $queryMicurso = "SELECT nombre FROM `data_cursos` where id = $idmicurso;";
+        $array_MiCurso = mysqli_query($conexion, $queryMicurso);
+        $miCursoA = mysqli_fetch_assoc($array_MiCurso);
+        $miCurso = $miCursoA['nombre'];
+    }
 }
 $fechanac = date('Y-m-d', strtotime($datosPersonales['fecha_nac']));
 $direccion = $datosPersonales['domicilio'];
 $provincia = $datosPersonales['provincia'];
 $localidad = $datosPersonales['localidad'];
 $telefono = $datosPersonales['telefono'];
+
+//SELECCIONAR CURSO DIVISION
+$queryC = "SELECT * FROM `data_cursos` WHERE activo = 1 ORDER BY anio ASC, division ASC, turno ASC;";
+$array_Cursos = mysqli_query($conexion, $queryC);
 ?>
 
 <main label="ficha">
@@ -78,9 +99,6 @@ $telefono = $datosPersonales['telefono'];
     </header>
     <section>
         <header>
-            <div class="text-center my-3">
-                <h4>Ficha de datos personales</h4>
-            </div>
             <?php if ($ok == 1) { ?>
                 <div>
                     <div class="alert alert-success">Los datos se han actualizado correctamente :D
@@ -88,146 +106,164 @@ $telefono = $datosPersonales['telefono'];
                 </div>
             <?php } ?>
         </header>
-        <div class="card shadow p-3 mb-5">
-            <form action="ficha.php" method="post">
-                <div class="row">
-                    <div class="col-xl-3 col-12 mt-3"><label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $apellido ?>">
-                    </div>
-                    <div class="col-xl-6 col-12 mt-3"><label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $nombre ?>">
-                    </div>
-                    <div class="col-xl-3 col-12 mt-3"><label for="email" class="form-label">Email de contacto
-                            (usuario)</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?= $email ?>">
-                    </div>
-                    <div class="col-xl-3 col-6 mt-3"><label for="cuil" class="form-label">CUIL (solo números)</label>
-                        <input type="text" class="form-control" id="cuil" name="cuil" value="<?= $cuil ?>"
-                            oninput="validarInputN(this)">
-                    </div>
-                    <div class="col-xl-3 col-6 mt-3"><label for="fechanac" class="form-label">Fecha
-                            nacimiento</label>
-                        <input type="date" class="form-control" id="fechanac" name="fechanac" value="<?= $fechanac ?>">
-                    </div>
-                    <?php if ($rol != 'alumno') { ?>
-                        <div class="col-xl-3 col-6 mt-3"><label for="legajop" class="form-label">Legajo
-                                personal</label>
-                            <input type="text" class="form-control" name="legajop" id="legajop" value="<?= $legajop ?>">
+        <div class="card shadow mb-5">
+            <div class="card-header text-bg-dark">
+                FICHA DE DATOS PERSONALES
+            </div>
+            <div class="card-body">
+                <form action="ficha.php" method="post">
+                    <div class="row">
+                        <div class="col-xl-3 col-12 mt-3"><label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $apellido ?>">
                         </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="legajoj" class="form-label">Legajo
-                                junta</label>
-                            <input type="text" class="form-control" name="legajoj" id="legajoj" value="<?= $legajoj ?>">
+                        <div class="col-xl-6 col-12 mt-3"><label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $nombre ?>">
                         </div>
-                    <?php } else { ?>
-                        <div class="col-6"></div>
+                        <div class="col-xl-3 col-12 mt-3"><label for="email" class="form-label">Email de contacto
+                                (usuario)</label>
+                            <input type="email" class="form-control" id="email" name="email" value="<?= $email ?>">
+                        </div>
+                        <div class="col-xl-3 col-6 mt-3"><label for="cuil" class="form-label">CUIL (solo números)</label>
+                            <input type="text" class="form-control" id="cuil" name="cuil" value="<?= $cuil ?>" oninput="validarInputN(this)">
+                        </div>
+                        <div class="col-xl-3 col-6 mt-3"><label for="fechanac" class="form-label">Fecha
+                                nacimiento</label>
+                            <input type="date" class="form-control" id="fechanac" name="fechanac" value="<?= $fechanac ?>">
+                        </div>
+                        <?php if ($rol != 'alumno') { ?>
+                            <div class="col-xl-3 col-6 mt-3"><label for="legajop" class="form-label">Legajo
+                                    personal</label>
+                                <input type="text" class="form-control" name="legajop" id="legajop" value="<?= $legajop ?>">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="legajoj" class="form-label">Legajo
+                                    junta</label>
+                                <input type="text" class="form-control" name="legajoj" id="legajoj" value="<?= $legajoj ?>">
+                            </div>
+                        <?php } else { ?>
+                            <div class="col"></div>
+                        <?php } ?>
+                        <hr class="mt-5">
+                        <div class="col-xl-3 col-6 mt-3">
+                            <label for="provincias" class="form-label">Provincia</label>
+                            <select class="form-select" name="provincia" id="provincias" required>
+                            </select>
+                        </div>
+                        <div class="col-xl-3 col-6 mt-3">
+                            <label for="ciudades" class="form-label">Localidad</label>
+                            <select class="form-select" name="localidad" id="ciudades" required>
+                                <option value="Cinco Saltos">Cinco Saltos</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-3 col-12 mt-3">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="domicilio" value="<?= $direccion ?>">
+                        </div>
+                        <div class="col-xl-3 col-12 mt-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" value="<?= $telefono ?>" oninput="validarInputN(this)">
+                        </div>
+                    </div>
+                    <?php if ($rol == 'alumno') { ?>
+                        <hr class="my-5">
+                        <div class="text-center">
+                            <h5>Datos de contacto de Tutores</h5>
+                        </div>
+                        <h5>Tutor A</h5>
+                        <div class="row">
+                            <div class="col-xl-6 col-6 mt-3"><label for="tutor_a" class="form-label">Nombre y Apellido</label>
+                                <input type="text" class="form-control" name="tutor_a" id="tutor_a" value="<?= $tutor_a ?>">
+                            </div>
+                            <div class="col-xl-6 col-6 mt-3"><label for="direcciontutor_a" class="form-label">Dirección
+                                    (completa)</label>
+                                <input type="text" class="form-control" name="direcciontutor_a" id="direcciontutor_a" value="<?= $direcciontutor_a ?>">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="telefonotutor_a" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" name="telefonotutor_a" id="telefonotutor_a" value="<?= $telefonotutor_a ?>" oninput="validarInputN(this)">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="emailtutor_a" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="emailtutor_a" id="emailtutor_a" value="<?= $emailtutor_a ?>">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="cuiltutor_a" class="form-label">CUIL</label>
+                                <input type="text" class="form-control" name="cuiltutor_a" id="cuiltutor_a" value="<?= $cuiltutor_a ?>" oninput="validarInputN(this)">
+                            </div>
+                        </div>
+                        <h5 class="mt-5">Tutor B</h5>
+                        <div class="row">
+                            <div class="col-xl-6 col-6 mt-3"><label for="tutor_b" class="form-label">Nombre y Apellido</label>
+                                <input type="text" class="form-control" name="tutor_b" id="tutor_b" value="<?= $tutor_b ?>">
+                            </div>
+                            <div class="col-xl-6 col-6 mt-3"><label for="direcciontutor_b" class="form-label">Dirección
+                                    (completa)</label>
+                                <input type="text" class="form-control" name="direcciontutor_b" id="direcciontutor_b" value="<?= $direcciontutor_b ?>">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="telefonotutor_b" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" name="telefonotutor_b" id="telefonotutor_b" value="<?= $telefonotutor_b ?>" oninput="validarInputN(this)">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="emailtutor_b" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="emailtutor_b" id="emailtutor_b" value="<?= $emailtutor_b ?>">
+                            </div>
+                            <div class="col-xl-3 col-6 mt-3"><label for="cuiltutor_b" class="form-label">CUIL</label>
+                                <input type="text" class="form-control" name="cuiltutor_b" id="cuiltutor_b" value="<?= $cuiltutor_b ?>" oninput="validarInputN(this)">
+                            </div>
+                        </div>
                     <?php } ?>
-                    <hr class="mt-5">
-                    <div class="col-xl-3 col-6 mt-3">
-                        <label for="provincias" class="form-label">Provincia</label>
-                        <select class="form-select" name="provincia" id="provincias" required>
-
-                        </select>
-                    </div>
-                    <div class="col-xl-3 col-6 mt-3">
-                        <label for="ciudades" class="form-label">Localidad</label>
-                        <select class="form-select" name="localidad" id="ciudades" required>
-                            <option value="Cinco Saltos">Cinco Saltos</option>
-                        </select>
-                    </div>
-                    <div class="col-xl-3 col-6 mt-3">
-                        <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" name="domicilio"
-                            value="<?= $direccion ?>">
-                    </div>
-                    <div class="col-xl-3 col-6 mt-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="<?= $telefono ?>"
-                            oninput="validarInputN(this)">
-                    </div>
-                </div>
-                <?php if ($rol == 'alumno') { ?>
-                    <hr class="my-5">
-                    <div class="text-center">
-                        <h5>Datos de contacto de Tutores</h5>
-                    </div>
-                    <h5>Tutor A</h5>
-                    <div class="row">
-                        <div class="col-xl-6 col-6 mt-3"><label for="tutor_a" class="form-label">Nombre y Apellido</label>
-                            <input type="text" class="form-control" name="tutor_a" id="tutor_a" value="<?= $tutor_a ?>">
-                        </div>
-                        <div class="col-xl-6 col-6 mt-3"><label for="direcciontutor_a" class="form-label">Dirección
-                                (completa)</label>
-                            <input type="text" class="form-control" name="direcciontutor_a" id="direcciontutor_a"
-                                value="<?= $direcciontutor_a ?>">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="telefonotutor_a" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" name="telefonotutor_a" id="telefonotutor_a"
-                                value="<?= $telefonotutor_a ?>" oninput="validarInputN(this)">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="emailtutor_a" class="form-label">Email</label>
-                            <input type="text" class="form-control" name="emailtutor_a" id="emailtutor_a"
-                                value="<?= $emailtutor_a ?>">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="cuiltutor_a" class="form-label">CUIL</label>
-                            <input type="text" class="form-control" name="cuiltutor_a" id="cuiltutor_a"
-                                value="<?= $cuiltutor_a ?>" oninput="validarInputN(this)">
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-xl-3 col-12 text-center mb-3"><button type="submit" name="actualizar" class="btn btn-success w-100">Actualizar mis datos
+                                personales</button>
                         </div>
                     </div>
-                    <h5 class="mt-5">Tutor B</h5>
-                    <div class="row">
-                        <div class="col-xl-6 col-6 mt-3"><label for="tutor_b" class="form-label">Nombre y Apellido</label>
-                            <input type="text" class="form-control" name="tutor_b" id="tutor_b" value="<?= $tutor_b ?>">
-                        </div>
-                        <div class="col-xl-6 col-6 mt-3"><label for="direcciontutor_b" class="form-label">Dirección
-                                (completa)</label>
-                            <input type="text" class="form-control" name="direcciontutor_b" id="direcciontutor_b"
-                                value="<?= $direcciontutor_b ?>">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="telefonotutor_b" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" name="telefonotutor_b" id="telefonotutor_b"
-                                value="<?= $telefonotutor_b ?>" oninput="validarInputN(this)">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="emailtutor_b" class="form-label">Email</label>
-                            <input type="text" class="form-control" name="emailtutor_b" id="emailtutor_b"
-                                value="<?= $emailtutor_b ?>">
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3"><label for="cuiltutor_b" class="form-label">CUIL</label>
-                            <input type="text" class="form-control" name="cuiltutor_b" id="cuiltutor_b"
-                                value="<?= $cuiltutor_b ?>" oninput="validarInputN(this)">
-                        </div>
-                    </div>
-                <?php } ?>
-                <div class="row mt-5">
-                    <div class="col text-center mb-3"><button type="submit" name="actualizar"
-                            class="btn btn-success">Actualizar mis datos
-                            personales</button></div>
-                </div>
-
-                <div class="col-6"></div>
-
-            </form>
+                    <div class="col-6"></div>
+                </form>
+            </div>
         </div>
+        <?php if ($rol == 'alumno') { ?>
+        <div class="card shadow mb-5">
+            <div class="card-header text-bg-success">
+                MI CURSO
+            </div>
+            <div class="card-body">
+                <form action="ficha.php" method="post">
+                    <div class="row  align-items-end">
+                        <div class="col-xl-4 col-12 mb-3">
+                            <label for="miCurso" class="form-label">Selecciona el curso donde asistis:</label>
+                            <select class="form-select" name="miCurso" id="miCurso" required>
+                                <option value="0" class="fw-semibold"><?= $miCurso ?></option>
+                                <?php while ($curso = mysqli_fetch_array($array_Cursos)) { ?>
+                                    <option value="<?= $curso['id'] ?>"><?= $curso['nombre'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-xl-2 col-12 mb-3">
+                            <button type="submit" name="btnmicurso" class="btn btn-success px-4 w-100">Actualizar mi curso</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <?php } ?>
     </section>
 </main>
 <script src="../_assets/js/menu.js"></script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: '../_functions/get_provincias.php?idUser=<?= $userId ?>',
             method: 'GET',
-            success: function (data) {
+            success: function(data) {
                 $('#provincias').html(data);
             }
         });
 
-        $('#provincias').change(function () {
+        $('#provincias').change(function() {
             var stateId = $(this).val();
             if (stateId !== '') {
                 $.ajax({
                     url: '../_functions/get_ciudades.php',
                     method: 'GET',
-                    data: { stateId: stateId },
-                    success: function (data) {
+                    data: {
+                        stateId: stateId
+                    },
+                    success: function(data) {
                         $('#ciudades').html(data);
                     }
                 });
@@ -247,4 +283,4 @@ $telefono = $datosPersonales['telefono'];
         input.value = input.value.replace(/[^0-9]/g, '');
     }
 </script>
-<?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+<?php require_once(ROOT_DIR . '_includes/footer.php') ?>

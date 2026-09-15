@@ -1,68 +1,82 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_functions/validarsesion.php");
+include(ROOT_DIR . "_functions/validarsesion.php");
 verificarSesion();
-include (ROOT_DIR . "_includes/db.php");
-require_once (ROOT_DIR . "_includes/header.php");
-require_once (ROOT_DIR . "_includes/sidebar.php");
+include(ROOT_DIR . "_includes/db.php");
+require_once(ROOT_DIR . "_includes/header.php");
+require_once(ROOT_DIR . "_includes/sidebar.php");
 ?>
 <main label="grupos">
     <header>
         <i class='bx bx-wrench'></i> Taller
     </header>
-    <section>
-        <header>
-            <div class="text-center">
-                <h3>Grupos y Horarios</h3>
-                <section class="container">
-                    <div class="card shadow p-3 mb-5">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-warning w-100 py-3 my-3"
-                                    href="primeroprimeratm.php">
-                                    <h4 class="fw-semibold">1ro 1ra</h4 class="fw-semibold">
-                                    <h5>Turno Mañana</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-warning w-100 py-3 my-3"
-                                    href="primeroprimeratt.php">
-                                    <h4 class="fw-semibold">1ro 1ra</h4 class="fw-semibold">
-                                    <h5>Turno Tarde</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-warning w-100 py-3 my-3"
-                                    href="primerosegundatm.php">
-                                    <h4 class="fw-semibold">1ro 2da</h4 class="fw-semibold">
-                                    <h5>Turno Mañana</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-warning w-100 py-3 my-3"
-                                    href="primerosegundatt.php">
-                                    <h4 class="fw-semibold">1ro 2da</h4 class="fw-semibold">
-                                    <h5>Turno Tarde</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-info w-100 py-3 my-3"
-                                    href="segundoprimeratm.php">
-                                    <h4 class="fw-semibold">2do 1ra</h4 class="fw-semibold">
-                                    <h5>Turno Mañana</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-info w-100 py-3 my-3"
-                                    href="segundoprimeratt.php">
-                                    <h4 class="fw-semibold">2do 1ra</h4 class="fw-semibold">
-                                    <h5>Turno Tarde</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-info w-100 py-3 my-3"
-                                    href="segundosegundatm.php">
-                                    <h4 class="fw-semibold">2do 2da</h4 class="fw-semibold">
-                                    <h5>Turno Mañana</h5>
-                                </a></div>
-                            <div class="col-xl-4 col-lg-6 col-12"><a type="button" class="btn btn-info w-100 py-3 my-3"
-                                    href="segundosegundatt.php">
-                                    <h4 class="fw-semibold">2do 2da y 2do 3ra</h4 class="fw-semibold">
-                                    <h5>Turno Tarde</h5>
-                                </a></div>                           
+    <section class="container">
+        <div class="card shadow mb-5">
+            <div class="card-body">
+                <p class="fw-semibold">HORARIOS</p>
+                <div class="row text-center">
+                    <div class="col fs-5"><i class='bx bx-time-five me-2'></i>Turno Mañana de 8:00 a 11:12hs</div>
+                    <div class="col fs-5"><i class='bx bx-time-five me-2'></i>Turno Tarde de 13:30 a 17:12hs</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <p class="fw-semibold">GRUPOS - ASISTENCIA</p>
+                        <div class="row text-center align-items-center">
+                            <div class="col-lg-4 col-12"><i class='bx bx-user-check bx-lg'></i></div>
+                            <div class="col-lg-8 col-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-info fw-semibold">1ro 1ra TM</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-warning fw-semibold">1ro 1ra TT</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-info fw-semibold">2do 1ra TM</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-warning fw-semibold">2do 1ra TT</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <div class="card-footer p-0"> <a class="btn btn-success w-100 py-3" href="https://docs.google.com/spreadsheets/d/1Lwq7YOWpIzi9p2m_hhHEcW8yZSEIOwVmlAt7K4pGQYA/edit?usp=drive_link" target="_blank">Ver Asistencia</a></div>
+                </div>
             </div>
-        </header>
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <p class="fw-semibold">GRUPOS - ASISTENCIA</p>
+                        <div class="row text-center align-items-center">
+                            <div class="col-lg-4 col-12"><i class='bx bx-user-check bx-lg'></i></div>
+                            <div class="col-lg-8 col-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-info fw-semibold">1ro 2da TM</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-warning fw-semibold">1ro 2da TT</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-info fw-semibold">2do 2da TM</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-12 my-2">
+                                        <h5 class="text-warning fw-semibold">2do 2da TT</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer p-0"> <a class="btn btn-success w-100 py-3" href="https://docs.google.com/spreadsheets/d/1hhXlEbbQ7Ft6DVf1K-fRrnpReh2jibO7CN-3VqpzuLc/edit?usp=drive_link" target="_blank">Ver Asistencia</a></div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 <script src="../_assets/js/menu.js"></script>
-<?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+<?php require_once(ROOT_DIR . '_includes/footer.php') ?>

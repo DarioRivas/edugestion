@@ -30,20 +30,12 @@ if (isset ($_POST['actualizar'])) {
         <i class='bx bx-user-circle'></i>
         Mi usuario
     </header>
-    <section>
-        <header>
-            <div class="text-center mb-3">
-                <h3>
-                    Cambiar mi contraseña de usuario
-                </h3>
-            </div>
-        </header>
-    </section>
-    <section class="px-5">
-        <div class="card container shadow">
+    <section class="container">
+        <div class="card shadow">
+            <div class="card-header text-bg-dark">CAMBIAR LA CONTRASEÑA DE MI CUENTA</div>
             <form action="cambiarclave.php" method="post" enctype="multipart/form-data" class="">
                 <div class="row align-items-center text-center px-5 justify-content-center">
-                    <div class="col-xl-6 col-12 mt-5">
+                    <div class="col-xl-6 col-12 mt-3">
                         Contraseña anterior
                         <input type="password" class="form-control" id="passold" name="passold"
                             aria-describedby="passoldHelp" required oninput="validarInput(this)">

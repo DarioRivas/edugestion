@@ -28,22 +28,22 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">AMBROSIO - CORDOBA PILAR ARIANA</li>
-                  <li class="list-group-item list-group-item-warning">BARRIENTOS MORENA VALENTINA </li>
-                  <li class="list-group-item list-group-item-warning">BONELLO MONZON IAN BAUTISTA</li>
-                  <li class="list-group-item list-group-item-warning">CARRASCO GONZALEZ TIZIANO ENRIQUE</li>
-                  <li class="list-group-item list-group-item-warning">CASTILLO MAYCOL OSCAR</li>
-                  <li class="list-group-item list-group-item-warning">FITIPALDI JOSEFINA LUJAN</li>
-                  <li class="list-group-item list-group-item-warning">GONZALEZ AGUSTIN KALEB</li>
+                  <li class="list-group-item list-group-item-warning">ALFONZO RUIZ CONSTANZA</li>
+                  <li class="list-group-item list-group-item-warning">ALVAREZ OSSES VALENTINA AVRIL </li>
+                  <li class="list-group-item list-group-item-warning">ARELLANO DANIELA ALDANA</li>
+                  <li class="list-group-item list-group-item-warning">BUSTOS BENJAMÍN</li>
+                  <li class="list-group-item list-group-item-warning">CARRA NOAH ISABELLA</li>
+                  <li class="list-group-item list-group-item-warning">CIDES SEBASTIAN EZEQUIEL</li>
+                  <li class="list-group-item list-group-item-warning">COFRE JUAN CRUZ</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Ajuste > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -57,22 +57,21 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">GONZALEZ MAGA</li>
-                  <li class="list-group-item list-group-item-warning">GUERRERO MAXIMO NEHUEN</li>
-                  <li class="list-group-item list-group-item-warning">IOVALDI HOMSE NEWÉN</li>
-                  <li class="list-group-item list-group-item-warning">JAQUE VALENTINA GIANELLA</li>
-                  <li class="list-group-item list-group-item-warning">LOPEZ ZOE LUJAN</li>
-                  <li class="list-group-item list-group-item-warning">MATURANO SANZ EROS BENJAMIN</li>
-                  <li class="list-group-item list-group-item-warning">MOLLO MUÑOZ DYLAN JAVIER</li>
+                  <li class="list-group-item list-group-item-warning">JAEGER MATIAS ISAAC</li>
+                  <li class="list-group-item list-group-item-warning">JARAMILLO LUISANA</li>
+                  <li class="list-group-item list-group-item-warning">JOHANSEN CLARA LEIRA</li>
+                  <li class="list-group-item list-group-item-warning">NAVARRETE JEREMIAS JONAS</li>
+                  <li class="list-group-item list-group-item-warning">NICOSIA LIBERATORE BIANCA</li>
+                  <li class="list-group-item list-group-item-warning">OLIVARES RIVEROS FIORELLA AGUSTINA</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Electricidad > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -86,23 +85,22 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">MUÑOZ BENJAMÍN ANANÍAS</li>
-                  <li class="list-group-item list-group-item-warning">MUÑOZ LUZ SHANTÁL</li>
-                  <li class="list-group-item list-group-item-warning">NAHUELÑIR MIQUEAS TOMAS</li>
-                  <li class="list-group-item list-group-item-warning">NARVAEZ JOAQUIN VALENTIN</li>
-                  <li class="list-group-item list-group-item-warning">NARVAEZ LARA ANTONELA</li>
-                  <li class="list-group-item list-group-item-warning">RIQUELME ARIANA DANA</li>
-                  <li class="list-group-item list-group-item-warning">RIVERO ALMA LUCILA</li>
-                  <li class="list-group-item list-group-item-warning">SALAZAR VAZQUEZ LEYLA TERESA</li>
+                  <li class="list-group-item list-group-item-warning">RIVERO DELFINA MORENA</li>
+                  <li class="list-group-item list-group-item-warning">SANCHEZ ARANCIBIA RENZO</li>
+                  <li class="list-group-item list-group-item-warning">SANCHEZ TIZIANO MARTIN</li>
+                  <li class="list-group-item list-group-item-warning">SERER FACUNDO SEBASTIAN</li>
+                  <li class="list-group-item list-group-item-warning">SIFUENTES DYLAN ALEXANDER</li>
+                  <li class="list-group-item list-group-item-warning">SIGLIANO SANTIAGO MARTIN</li>
+                  <li class="list-group-item list-group-item-warning">SILVA DE LA VEGA MATEO JOAQUIN</li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Carpintería > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Hojalatería > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>
@@ -116,23 +114,21 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
             <div class="row">
               <div class="col-xl-6 col-12">
                 <ul class="list-group small">
-                  <li class="list-group-item list-group-item-warning">SANZ OMAR ANDRES</li>
-                  <li class="list-group-item list-group-item-warning">SCOTTO LANDAETA SELENA JAZMIN</li>
-                  <li class="list-group-item list-group-item-warning">SEREN KEVIN LEANDRO </li>
-                  <li class="list-group-item list-group-item-warning">SOTO MORALES JUAN PABLO </li>
-                  <li class="list-group-item list-group-item-warning">ULLOA QUEILA JAZMÍN </li>
-                  <li class="list-group-item list-group-item-warning">VERA ALEXANDER NEHEMIAS </li>
-                  <li class="list-group-item list-group-item-warning">WENZEL AMY ROCIO </li>
-                  <li class="list-group-item list-group-item-warning">ZALAZAR SANTINO EZEQUIEL </li>
+                  <li class="list-group-item list-group-item-warning">VONGSA EVANGELINA ALISONS</li>
+                  <li class="list-group-item list-group-item-warning">FIGUEROA SANTINO</li>
+                  <li class="list-group-item list-group-item-warning">POBLETTE PAULA GUADALUPE </li>
+                  <li class="list-group-item list-group-item-warning">REMIREZ MORENA JAZMIN </li>
+                  <li class="list-group-item list-group-item-warning">TOMAS LAUTARO </li>
+                  <li class="list-group-item list-group-item-warning">VELIZ FLORES WILLIAMS </li>
                 </ul>
               </div>
               <div class="col-xl-6 col-12">
                 <ul class="list-group mt-2 small">
                   Rotaciones
-                  <li class="list-group-item list-group-item-info">Hojalatería > 20/03 - 17/05</li>
-                  <li class="list-group-item list-group-item-info">Ajuste > 20/05 - 05/07</li>
-                  <li class="list-group-item list-group-item-info">Electricidad > 22/07 - 04/10</li>
-                  <li class="list-group-item list-group-item-info">Carpintería > 07/10 - 30/11</li>
+                  <li class="list-group-item list-group-item-info">Ajuste > 06/03 - 02/05</li>
+                  <li class="list-group-item list-group-item-info">Electricidad > 05/05 - 04/07</li>
+                  <li class="list-group-item list-group-item-info">Carpintería > 21/07 - 26/09</li>
+                  <li class="list-group-item list-group-item-info">Hojalatería > 30/09 - 28/11</li>
                 </ul>
               </div>
             </div>

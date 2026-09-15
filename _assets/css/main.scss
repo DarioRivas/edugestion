@@ -1,0 +1,292 @@
+body {
+  /*
+  background-image: linear-gradient(
+    to right top,
+    #ececec,    
+    #f1f1f1,
+    #f5f5f5,
+    #fafafa,
+    #ffffff
+  );
+  background: rgb(14,75,47);
+ background: linear-gradient(90deg, rgba(14,75,47,1) 0%, rgba(14,75,47,1) 35%, rgba(21,115,71,1) 100%);
+  background-color: #157347; */
+  background-image: url("<?= ROOT_DIR ?>_assets/images/fondo3.jpg");
+  background-attachment: scroll;
+  background-repeat: repeat;
+  min-height: 100dvh;
+}
+
+/* SLIDE PAGINA PRINCIPAL */
+
+#slideshow {
+  text-align: center;
+  overflow: hidden;
+  height: 510px;
+  width: 728px;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: 2912px;
+  -webkit-animation: slide 18s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 510px;
+  width: 728px;
+}
+
+.slide:nth-child(1) {
+  background: #f0f0f0;
+}
+
+.slide:nth-child(2) {
+  background: #037e8c;
+}
+
+.slide:nth-child(3) {
+  background: #36bf66;
+}
+
+.slide:nth-child(4) {
+  background: #d9d055;
+}
+
+@-webkit-keyframes slide {
+  20% {
+    margin-left: 0px;
+  }
+
+  30% {
+    margin-left: -728px;
+  }
+
+  50% {
+    margin-left: -728px;
+  }
+
+  60% {
+    margin-left: -1456px;
+  }
+
+  70% {
+    margin-left: -1456px;
+  }
+
+  80% {
+    margin-left: -2184px;
+  }
+
+  90% {
+    margin-left: -2184px;
+  }
+}
+
+.slide-number {
+  color: #000;
+  text-align: center;
+  font-size: 10em;
+}
+
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+/* SLIDE VERTICAL
+
+#slideshowV {
+  text-align: center;
+  overflow: hidden;
+  height: 700px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.slide-wrapperV {
+  width: 1800px;
+  -webkit-animation: slideV 18s ease infinite;
+}
+
+.slideV {
+  float: left;
+  height: 700px;
+  width: 450px;
+}
+
+.slideV:nth-child(1) {
+  background: #f0f0f0;
+}
+
+.slideV:nth-child(2) {
+  background: #037e8c;
+}
+
+.slideV:nth-child(3) {
+  background: #36bf66;
+}
+
+.slideV:nth-child(4) {
+  background: #d9d055;
+}
+
+@-webkit-keyframes slideV {
+  20% {
+    margin-left: 0px;
+  }
+
+  30% {
+    margin-left: -450px;
+  }
+
+  50% {
+    margin-left: -450px;
+  }
+
+  60% {
+    margin-left: -900px;
+  }
+
+  70% {
+    margin-left: -900px;
+  }
+
+  80% {
+    margin-left: -1350px;
+  }
+
+  90% {
+    margin-left: -1350px;
+  }
+}
+ */
+
+ .slideshow-container {
+  position: relative;
+  max-width: 450px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide2 {
+  display: none;
+}
+
+.slide2 .img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Transición suave para el cambio de imágenes */
+.fade {
+  animation-name: fade;
+  animation-duration: 4.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.0; }
+  to { opacity: 1; }
+}
+
+/* Hacer que el contenedor sea responsive */
+@media screen and (max-width: 450px) {
+  .slideshow-container {
+      width: 100%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  background-color: pink;
+  height: 100px;
+  width: 100px;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* animation */
+.appear {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+.appear.inview {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.appear2 {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+}
+
+.appear2.inview2 {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.appear2.inview2:nth-child(1) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.appear2.inview2:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.appear2.inview2:nth-child(3) {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.appear2.inview2:nth-child(4) {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.appear2.inview2:nth-child(5) {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.appear3 {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+.appear3.inview {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}

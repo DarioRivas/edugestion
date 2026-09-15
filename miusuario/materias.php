@@ -1,10 +1,10 @@
 <?php
 define('ROOT_DIR', '../');
-include (ROOT_DIR . "_functions/validarsesion.php");
+include(ROOT_DIR . "_functions/validarsesion.php");
 verificarSesion();
-include (ROOT_DIR . "_includes/db.php");
-include (ROOT_DIR . "_functions/usuarios.php");
-require_once (ROOT_DIR . "_includes/header.php");
+include(ROOT_DIR . "_includes/db.php");
+include(ROOT_DIR . "_functions/usuarios.php");
+require_once(ROOT_DIR . "_includes/header.php");
 $userId = $_SESSION['user-id'];
 $userApellido = $_SESSION['user-apellido'];
 $alert = '';
@@ -24,16 +24,48 @@ if (isset($_POST['eliminar'])) {
     $idCurso = $_POST['idCurso'];
     $sql = "DELETE FROM profes_materias WHERE id = $idCurso";
     mysqli_query($conexion, $sql);
-    $alert = "<i class='bx bx-happy bx-sm me-2'></i> El registro se ha eliminado correctamente";
+    $alert = "<i class='bx bx-happy bx-sm me-2'></i> El registro se ha desvinculado correctamente";
     $color = 'alert-warning';
 }
+
+if (isset($_POST['registrarCargo'])) {
+    if(isset($_POST['idCargo'])){
+        $idCargo = $_POST['idCargo'];
+        $sql = "INSERT INTO profes_cargos (idusuarios, cargo) VALUES ('$userId', '$idCargo');";
+        mysqli_query($conexion, $sql);
+        $alert = "<i class='bx bx-happy bx-sm me-2'></i> El cargo se ha registrado correctamente";
+        $color = 'alert-success';
+    }else{
+        $alert = "<i class='bx bx-confused bx-sm me-2'></i> Debe seleccionar un cargo del listado desplegable";
+        $color = 'alert-warning';
+    }   
+}
+
+if (isset($_POST['eliminarCargo'])) {
+    $idCargo = $_POST['idCargo'];
+    $sql = "DELETE FROM profes_cargos WHERE id = $idCargo";
+    mysqli_query($conexion, $sql);
+    $alert = "<i class='bx bx-happy bx-sm me-2'></i> El cargo se ha desvinculado correctamente";
+    $color = 'alert-warning';
+}
+
+$sqlCargos = "SELECT * FROM data_cargos ORDER BY nombre, turno";
+$selectCargos = mysqli_query($conexion, $sqlCargos);
 
 $sql = "SELECT P.id, M.nombre AS materia, C.nombre AS curso FROM profes_materias P
 INNER JOIN data_materias M ON P.iddata_materias = M.id
 INNER JOIN data_cursos C on P.iddata_cursos = C.id WHERE idusuarios = $userId ORDER BY curso, materia";
 $result = mysqli_query($conexion, $sql);
 $registros = mysqli_num_rows($result);
-require_once (ROOT_DIR . "_includes/sidebar.php");
+require_once(ROOT_DIR . "_includes/sidebar.php");
+
+$sql = "SELECT DC.nombre AS cargo, DC.turno AS turno, PC.id
+FROM profes_cargos PC INNER JOIN data_cargos DC ON PC.cargo = DC.id
+WHERE PC.idusuarios = $userId
+";
+$resultB = mysqli_query($conexion, $sql);
+$registrosCargos = mysqli_num_rows($resultB);
+require_once(ROOT_DIR . "_includes/sidebar.php");
 ?>
 
 <main label="miscursos">
@@ -42,9 +74,6 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
     </header>
     <section>
         <header>
-            <div class="text-center my-3">
-                <h4>Registrarme en cursos y materias</h4>
-            </div>
             <?php if ($alert != '') { ?>
                 <div>
                     <div class="alert <?= $color ?> d-flex"><?= $alert ?>
@@ -52,77 +81,127 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
                 </div>
             <?php } ?>
         </header>
-        <div class="card shadow p-3 mb-5">
-            <form action="materias.php" method="post">
-                <div class="row align-items-end">
-                    <div class="col-xxl-3 col-xl-3 col-lg-6 col-12">
-                        <label for="anios" class="form-label mt-3 small">Año de cursado:</label>
-                        <select class="form-select" name="anio" id="anios" required>
-                            <option selected disabled>Año</option>
-                            <option value="1">1er año</option>
-                            <option value="2">2do año</option>
-                            <option value="3">3er año</option>
-                            <option value="4">4to año</option>
-                            <option value="5">5to año</option>
-                            <option value="6">6to año</option>
-                        </select>
+        <div class="card shadow mb-5">
+            <div class="card-header text-bg-dark">
+            <i class='bx bx-chalkboard me-2'></i> REGISTRARME EN CURSOS Y MATERIAS
+            </div>
+            <div class="card-body">
+                <form action="materias.php" method="post">
+                    <div class="row align-items-end">
+                        <div class="col-xxl-3 col-xl-2 col-lg-6 col-12">
+                            <label for="anios" class="form-label small">Año de cursado:</label>
+                            <select class="form-select" name="anio" id="anios" required>
+                                <option selected disabled>Año</option>
+                                <option value="1">1er año</option>
+                                <option value="2">2do año</option>
+                                <option value="3">3er año</option>
+                                <option value="4">4to año</option>
+                                <option value="5">5to año</option>
+                                <option value="6">6to año</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-6 col-12">
+                            <label for="materias" class="form-label mt-3 small">Materia:</label>
+                            <select class="form-select  input-control" name="materia" id="materias" required>
+                                <option selected disabled>Materia</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-12">
+                            <label for="divisiones" class="form-label mt-3 small">División:</label>
+                            <select class="form-select" name="divisiones" id="divisiones" required>
+                                <option selected disabled>Division</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-2 col-xl-3 col-lg-6 col-12">
+                            <button class="btn btn-success w-100 d-flex justify-content-center mt-3" name="registrar">Registrar
+                                <i class='ms-3 bx bx-message-check bx-sm'></i></button>
+                        </div>
                     </div>
-                    <div class="col-xxl-4 col-xl-3 col-lg-6 col-12">
-                        <label for="materias" class="form-label mt-3 small">Materia:</label>
-                        <select class="form-select  input-control" name="materia" id="materias" required>
-                            <option selected disabled>Materia</option>
-                        </select>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-6 col-12">
-                        <label for="divisiones" class="form-label mt-3 small">División:</label>
-                        <select class="form-select" name="divisiones" id="divisiones" required>
-                            <option selected disabled>Division</option>
-                        </select>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-6 col-12">
-                        <button class="btn btn-success w-100 d-flex justify-content-center mt-3" name="registrar">Registrar
-                            <i class='ms-3 bx bx-message-check bx-sm'></i></button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="text-center my-3">
-            <h4>Mis cursos y materias</h4>
-        </div>
-        <div class="card shadow p-3 mb-5 text-center">
-            <?php if ($registros != 0) {
-                while ($reg = mysqli_fetch_array($result)) { ?><form action="materias.php" method="post">
-                    <div class="row align-items-end justify-content-center py-2 border-bottom">                        
-                            <div class="col-xl-6 col-lg-4 col-12 text-start">
-                                <span class="small text-muted">Materia: </span><?= $reg['materia'] ?>
+                </form>
+            </div>           
+            <div class="card-body">
+                <?php if ($registros != 0) {
+                    while ($reg = mysqli_fetch_array($result)) { ?><form action="materias.php" method="post">
+                            <div class="row align-items-end justify-content-center py-2 border-bottom">
+                                <div class="col-xl-6 col-lg-4 col-12 text-start">
+                                    <span class="small text-muted">Materia: </span><?= $reg['materia'] ?>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-12 text-start">
+                                    <span class="small text-muted">Curso: </span><?= $reg['curso'] ?>
+                                </div>
+                                <input type="hidden" name="idCurso" value="<?= $reg['id'] ?>">
+                                <div class="col-xl-2 col-lg-2 col-6">
+                                    <button class="btn btn-danger btn-sm w-100" name="eliminar">Eliminar <i class='ms-2 bx bx-trash'></i></button>
+                                </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-12 text-start">
-                                <span class="small text-muted">Curso: </span><?= $reg['curso'] ?>
-                            </div>
-                            <input type="hidden" name="idCurso" value="<?= $reg['id'] ?>">
-                            <div class="col-xl-2 col-lg-2 col-6">
-                                <button class="btn btn-danger w-100" name="eliminar">Eliminar <i class='ms-2 bx bx-trash'></i></button>
-                            </div>                       
-                    </div>
-                    </form>
-                <?php }
-            } else { ?>
-                <div class="alert alert-warning">No se registraron cursos aún...</div>
-            <?php } ?>
+                        </form>
+                    <?php }
+                } else { ?>
+                    <div class="alert alert-warning">No hay cursos vinculados con su Usuario</div>
+                <?php } ?>
+            </div>
         </div>
+        <div class="card shadow mb-5">
+        <div class="card-header text-bg-dark">
+            <i class='bx bx-briefcase me-2' ></i>REGISTRARME EN CARGOS
+            </div>
+            <div class="card-body">
+                <form action="materias.php" method="post">
+                    <div class="row align-items-end">
+                        <div class="col-xxl-8 col-xl-8 col-lg-7 col-12">
+                            <label for="materias" class="form-label small">Cargo:</label>
+                            <select class="form-select  input-control" name="idCargo" id="idCargo" required>
+                                <option selected disabled>Cargos</option>
+                                <?php while ($arrayCargos = mysqli_fetch_array($selectCargos)) { ?>
+                                    <option value="<?= $arrayCargos['id'] ?>"><?= $arrayCargos['nombre'] ?> - Turno <?= $arrayCargos['turno'] ?> </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-xxl-2 col-xl-4 col-lg-5 col-12">
+                            <button class="btn btn-success w-100 d-flex justify-content-center mt-3" name="registrarCargo">Registrar
+                                <i class='ms-3 bx bx-message-check bx-sm'></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <?php if ($registrosCargos != 0) {
+                    while ($regB = mysqli_fetch_array($resultB)) { ?><form action="materias.php" method="post">
+                            <div class="row align-items-end justify-content-center py-2 border-bottom">
+                                <div class="col-xl-6 col-lg-4 col-12 text-start">
+                                    <span class="small text-muted">Cargo: </span><?= $regB['cargo'] ?>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-12 text-start">
+                                    <span class="small text-muted">Turno: </span><?= $regB['turno'] ?>
+                                </div>
+                                <input type="hidden" name="idCurso" value="<?= $regB['id'] ?>">
+                                <div class="col-xl-2 col-lg-2 col-6">
+                                    <button class="btn btn-danger btn-sm w-100" name="eliminar">Eliminar <i class='ms-2 bx bx-trash'></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    <?php }
+                } else { ?>
+                    <div class="alert alert-warning">No hay cargos vinculados con su Usuario</div>
+                <?php } ?>
+            </div>
+        </div>
+
     </section>
 </main>
 <script src="../_assets/js/menu.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#anios').change(function () {
+    $(document).ready(function() {
+        $('#anios').change(function() {
             var anioNum = $(this).val();
             if (anioNum !== '') {
                 $.ajax({
                     url: 'get_divisiones.php',
                     method: 'GET',
-                    data: { anioNum: anioNum },
-                    success: function (data) {
+                    data: {
+                        anioNum: anioNum
+                    },
+                    success: function(data) {
                         $('#divisiones').html(data);
                     }
                 });
@@ -133,15 +212,17 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
     });
 </script>
 <script>
-    $(document).ready(function () {
-        $('#anios').change(function () {
+    $(document).ready(function() {
+        $('#anios').change(function() {
             var stateId = $(this).val();
             if (stateId !== '') {
                 $.ajax({
                     url: 'get_materias.php',
                     method: 'GET',
-                    data: { stateId: stateId },
-                    success: function (data) {
+                    data: {
+                        stateId: stateId
+                    },
+                    success: function(data) {
                         $('#materias').html(data);
                     }
                 });
@@ -152,4 +233,4 @@ require_once (ROOT_DIR . "_includes/sidebar.php");
     });
 </script>
 <script src="../_assets/js/menu.js"></script>
-<?php require_once (ROOT_DIR . '_includes/footer.php') ?>
+<?php require_once(ROOT_DIR . '_includes/footer.php') ?>
